@@ -7,7 +7,7 @@ DIRS := dev etc home lib/modules media proc root \
 	var/lib/snapd var/log var/snap var/tmp
 
 install:
-	mkdir -p $(DIRS)
+	$(foreach dir,$(DIRS),mkdir -p $(DESTDIR)/$(dir);)
 
 clean:
-	rm -rf $(DIRS)
+	rm -rf $(DESTDIR)
