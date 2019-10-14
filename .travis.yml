@@ -1,0 +1,12 @@
+language: python
+os: linux
+dist: trusty
+sudo: enabled
+script:
+  - sudo apt-get update
+  - sudo apt-get install --yes --no-install-recommends snapd
+  - sudo snap install --classic snapcraft
+  - sudo snapcraft
+  - unsquashfs -ll bare_*_all.snap
+  - unsquashfs -ls bare_*_all.snap | grep /usr/lib/snapd
+
