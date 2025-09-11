@@ -8,6 +8,7 @@ DIRS := dev etc home lib/modules media proc root \
 
 install:
 	$(foreach dir,$(DIRS),mkdir -p $(DESTDIR)/$(dir);)
+	ln -s /run $(DESTDIR)/var/run
 
 clean:
 	rm -rf $(DESTDIR)
