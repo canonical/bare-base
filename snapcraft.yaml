@@ -5,9 +5,12 @@ summary: Empty base snap for snaps that need no libc or similar.
 description: |
     An empty base snap that contains nothing except the directories
     required as mount points.
-architectures:
-  - all
-build-base: core
+platforms:
+  all:
+    build-on: [amd64]
+    build-for: [all]
+build-base: core24
+confinement: strict
 
 parts:
   dir-layout:
